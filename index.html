@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>Weather Forecast</title>
+
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" type="text/css" href="main.css">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	
+	
+	
+</head>
+
+<body class="body">
+	
+	<header id="header">
+		<div class="logo">Weather Forecast</div>
+		<div class="btn-container">
+			<button id="button" class="menu-btn" onclick="show_hide()">Menu</button>
+			<div id="dropdown-menu">
+				<a href=""> Find a forecast</a>
+				<a href=""> Services</a>
+				<a href=""> About us</a>
+			</div>
+		</div>
+		<nav class="nav-bar menu-nav-bar">
+			<ul>
+				<li><a href="#location-search-input" onclick="getFocus()"> Find a forecast</a></li>
+				<li><a href=""> Services</a></li>
+				<li><a href=""> About us</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div class="main-content">
+		<div class ="img-canvas">
+			<img class="image" src="weather.jpg">
+		</div>
+		<div>
+			<form onsubmit="return location2()">
+				<input id="location-search-input" type="text" name="query"  placeholder="Type in location">
+			</form>
+		</div>
+		<section class="table-container">
+			<div id= "content-weather" class="content-wrapper">
+				
+			</div>
+		</section>
+	</div>
+
+<script src="main.js"></script>
+</body>
+
+</html>
