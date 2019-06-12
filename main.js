@@ -47,7 +47,7 @@ function add(dtime, icon, weather, temp) {
 		console.log(dtime);*/
 }
 
-function xlist(list, index) {
+function data_return(list, index) {
 		
 		
 		var dtime = list[index].dt_txt;
@@ -60,10 +60,10 @@ function xlist(list, index) {
 	add(dtime, icon, weather, temp);
 }
 
-function location2(event) {
+function location_input(event) {
 	var city = document.getElementById("location-search-input").value;
 	
-$.getJSON("http://api.openweathermap.org/data/2.5/forecast?q="+ city +"&units=metric&appid=5b5393bafaa87fba80fc2c0ab113981e", 
+$.getJSON("https://api.openweathermap.org/data/2.5/forecast?q="+ city +"&units=metric&appid=5b5393bafaa87fba80fc2c0ab113981e", 
 	
 	function(data){
 		console.log(data);
@@ -74,8 +74,8 @@ $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q="+ city +"&units=me
 		
 		for( i=0; i<data.list.length; i++){
 			
-			xlist(data.list, i);
-			console.log(xlist);
+			data_return(data.list, i);
+			console.log(data_return);
 		}
 	}
 	);
