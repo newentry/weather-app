@@ -63,7 +63,7 @@ function xlist(list, index) {
 function location2(event) {
 	var city = document.getElementById("location-search-input").value;
 	
-$.getJSON("http://api.openweathermap.org/data/2.5/forecast?q="+ city +"&units=metric&appid=5b5393bafaa87fba80fc2c0ab113981e", 
+$.getJSON("https://api.openweathermap.org/data/2.5/forecast?q="+ city +"&units=metric&appid=5b5393bafaa87fba80fc2c0ab113981e", 
 	
 	function(data){
 		console.log(data);
