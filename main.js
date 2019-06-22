@@ -19,7 +19,7 @@ function getFocus() {
 
 function add(dtime, icon, weather, temp) {
 
-		var table ='<table border=1>\
+		var table ='<table class="all-data" border=1>\
 			<tr>\
 				<td class="date-time">' + dtime + '</td>\
 			</tr>\
@@ -27,7 +27,7 @@ function add(dtime, icon, weather, temp) {
 				<td class="current-forecast"><td>\
 			</tr>\
 			<tr>\
-				<td><img class="icon"></td>\
+				<td><img src="' + icon +'"></td>\
 			</tr>\
 			<tr>\
 				<td class="temp">' + temp + '</td>\
@@ -38,8 +38,8 @@ function add(dtime, icon, weather, temp) {
 		</table>';
 		
 		
-		$("#content-weather").append(table);
-
+		$(".table-content2").append(table);
+return false;
 		/*$(".date-time").append(dtime);   
 		$(".icon").attr("src", icon);
 		$(".weather").append(weather);
@@ -49,29 +49,38 @@ function add(dtime, icon, weather, temp) {
 
 function data_return(list, index) {
 		
+		var listIndex = list[index];
+
+		var dtime = listIndex.dt_txt;
+		var temp = Math.floor(listIndex.main.temp);
+
+	for (var i = 0; i < listIndex.weather.length; i++) {
 		
-		var dtime = list[index].dt_txt;
-		var icon = "http://openweathermap.org/img/w/" + list[index].weather[0].icon + ".png";
-		var weather = list[index].weather[0].main;
-		var temp = Math.floor(list[index].main.temp);
+		var listWeather = listIndex.weather[i];
+
+		var icon = "http://openweathermap.org/img/w/" + listWeather.icon + ".png";
+		var weather = listWeather.main;
+
+		add(dtime, icon, weather, temp);
+	}
 		
-		
-		
-	add(dtime, icon, weather, temp);
+	
 }
 
 function location_input(event) {
 	var city = document.getElementById("location-search-input").value;
-	
+		
 $.getJSON("https://api.openweathermap.org/data/2.5/forecast?q="+ city +"&units=metric&appid=5b5393bafaa87fba80fc2c0ab113981e", 
 	
 	function(data){
 		console.log(data);
 		
-		var day = "Today"
-		$("#content-weather").html(day);
+		var day = '<h3>Today</h3>'
+		$("#content-weather").append(day);
 		var i;
 		
+		$(".table-content2").html("");
+
 		for( i=0; i<data.list.length; i++){
 			
 			data_return(data.list, i);
@@ -82,3 +91,13 @@ $.getJSON("https://api.openweathermap.org/data/2.5/forecast?q="+ city +"&units=m
 	
 	return false;
 }
+
+
+var leftArrow = document.querySelector('.left');
+var rightArrow = document.querySelector('.right');
+var sectionIndex = 0;
+
+rightArrow.addEventListener('click', function(){
+	var slider = document.querySelector('.table-content2');
+		slider.style.transform = 'translate(-25%)';
+});

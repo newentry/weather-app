@@ -51,17 +51,51 @@
 	top: 200px;
 }
 
-.content-wrapper {
-	max-width: 1280px;
-	height: 320px;
-	display: flex;
-	position: relative;
-	transition: :left 2s;
-	-webkit-transition: left 2s;
-	-moz-transition: left 2s;
-	-o-transition: left 2s;
-	overflow: hidden;
+.table-container {
+	width: 1280px;
+	height: 200px;
+	position: absolute;
+	top: 30%;
+	left: 24%;
 }	
+
+.table-container .content-wrapper {
+	height: 85%;
+	top: 20px;
+	position: relative;
+	border: 1px solid red;
+	margin: auto;
+	overflow: hidden;
+}
+
+.content-wrapper h3 {
+	position: absolute;
+	top:-40px;
+	left: 63px;
+}
+
+.table-content2 {
+	width: 90%;
+	display: flex;
+	margin: auto;
+	overflow: hidden;
+}
+
+
+
+.controls .arrow {
+	position: absolute;
+	top: 50%;
+	cursor: pointer;
+}
+
+.controls .left {
+	left: 10px;
+}
+
+.controls .right {
+	right: 10px;
+}
 
 @media only screen and (max-width: 720px) {
 	#header {
