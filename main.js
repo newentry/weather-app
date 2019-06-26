@@ -69,28 +69,38 @@ function data_return(list, index) {
 
 function location_input(event) {
 	var city = document.getElementById("location-search-input").value;
-		
-$.getJSON("https://api.openweathermap.org/data/2.5/forecast?q="+ city +"&units=metric&appid=5b5393bafaa87fba80fc2c0ab113981e", 
+
 	
+	$(".table-content2").html("");
+	
+
+$.getJSON("https://api.openweathermap.org/data/2.5/forecast?q="+ city +"&units=metric&appid=5b5393bafaa87fba80fc2c0ab113981e", 
 	function(data){
-		console.log(data);
 		
-		var day = '<h3>Today</h3>'
-		$("#content-weather").append(day);
+		document.getElementById("show-controls").style.display = "block";	
+		document.getElementById("content-weather").style.display = "block";
+		document.getElementById("alert").style.display = "none";
+
 		var i;
 		
-		$(".table-content2").html("");
 
 		for( i=0; i<data.list.length; i++){
 			
 			data_return(data.list, i);
-			console.log(data_return);
+			
 		}
 	}
-	);
+	)
+	
+	.fail(function() {
+   		document.getElementById("show-controls").style.display = "none"; 
+   		document.getElementById("alert").style.display= "block";
+   	});
+
+
 	
 	return false;
-}
+};
 
 
 var leftArrow = document.querySelector('.left');
@@ -98,6 +108,16 @@ var rightArrow = document.querySelector('.right');
 var sectionIndex = 0;
 
 rightArrow.addEventListener('click', function(){
+		sectionIndex = (sectionIndex <9) ? sectionIndex +1 : 10;
 	var slider = document.querySelector('.table-content2');
-		slider.style.transform = 'translate(-25%)';
+		slider.style.transform = 'translate(' + (sectionIndex) * -25 + '%)';
+		slider.style.transition = 'all 0.5s';
 });
+
+leftArrow.addEventListener('click', function(){
+		sectionIndex = (sectionIndex >0) ? sectionIndex -1 : 0;
+	var slider = document.querySelector('.table-content2');
+		slider.style.transform = 'translate(' + (sectionIndex) * -25 + '%)';
+});
+
+

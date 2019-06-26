@@ -43,7 +43,7 @@
 			<img class="image" src="weather.jpg">
 		</div>
 		<div>
-			<form onsubmit="return location_input()">
+			<form id="submit" onsubmit="return location_input()">
 				<input id="location-search-input" type="text" name="query"  placeholder="Type in location">
 			</form>
 		</div>
@@ -54,13 +54,14 @@
 						
 					</div>
 				</div>
-				<div class="controls">
-					<span class="arrow left">left</span>
-					<span class="arrow right">right</span>
+				<div id="show-controls" class="controls">
+					<span class="arrow left"></span>
+					<span class="arrow right"></span>
 				</div>
 			</div>
 		</section>
 	</div>
+	<div id="alert">Invalid city, please type in a valid city!</div>
 
 <script src="main.js"></script>
 </body>
