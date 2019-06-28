@@ -13,44 +13,34 @@ function getFocus() {
   	event.preventDefault();
 });
 	var focus2 = document.getElementById("location-search-input").focus();
+	var z = document.getElementById("dropdown-menu");
+  if (z.style.display === "block") {
+    z.style.display = "none";
+  } else {
+    z.style.display = "block";
+  }
 	return focus2;
 
 }
 
-function add(dtime, icon, weather, temp) {
+function add2(dtime, icon, weather, temp) {
 
-		var table ='<table class="all-data" border=1>\
-			<tr>\
-				<td class="date-time">' + dtime + '</td>\
-			</tr>\
-			<tr>\
-				<td class="current-forecast"><td>\
-			</tr>\
-			<tr>\
-				<td><img src="' + icon +'"></td>\
-			</tr>\
-			<tr>\
-				<td class="temp">' + temp + '</td>\
-			</tr>\
-			<tr>\
-				<td class="weather">' + weather + '</td>\
-			</tr>\
-		</table>';
+		var table ='<div class="all-data" >\
+			<div class="date-time">' + dtime + '</div>\
+			<div class="img-icon"><img src="' + icon +'" style="width: 80px"></div>\
+			<div class="temp">' + temp + "°" + '</div>\
+			<div class="weather">' + weather + '</div>\
+		</div>';
 		
 		
 		$(".table-content2").append(table);
-return false;
-		/*$(".date-time").append(dtime);   
-		$(".icon").attr("src", icon);
-		$(".weather").append(weather);
-		$(".temp").append(temp); 
-		console.log(dtime);*/
+	return false;
 }
 
 function data_return(list, index) {
 		
 		var listIndex = list[index];
-
+		
 		var dtime = listIndex.dt_txt;
 		var temp = Math.floor(listIndex.main.temp);
 
@@ -61,7 +51,7 @@ function data_return(list, index) {
 		var icon = "http://openweathermap.org/img/w/" + listWeather.icon + ".png";
 		var weather = listWeather.main;
 
-		add(dtime, icon, weather, temp);
+		add2(dtime, icon, weather, temp);
 	}
 		
 	
@@ -119,5 +109,7 @@ leftArrow.addEventListener('click', function(){
 	var slider = document.querySelector('.table-content2');
 		slider.style.transform = 'translate(' + (sectionIndex) * -25 + '%)';
 });
+
+
 
 
