@@ -11,6 +11,7 @@
 	flex-wrap: wrap;
 	background-color: #20201c;
 	font-size: 2em;
+	font-family: fantasy, sans-serif;
 }
 #header .logo {
 	display: flex;
@@ -60,7 +61,7 @@
 }	
 
 .table-container .content-wrapper {
-	height: 85%;
+	height: 70%;
 	top: 20px;
 	position: relative;
 }
@@ -74,6 +75,7 @@
 .table-content {
 	overflow: hidden;
 	margin: 0 75px 0 60px;
+	font-family: math, sans-serif;
 }
 
 .table-content2 {
@@ -126,6 +128,40 @@
     top: -700px;
     margin: auto;
 }
+
+.all-data {
+	border-radius: 6px;
+	border: 1px solid black;
+	padding: 5px;
+	margin: 5px;
+	background-color: #fafafa;
+}
+
+.date-time {
+	border-radius: 6px;
+	border: transparent;
+	text-align: center;
+}
+
+.img-icon {
+	border-radius: 6px;
+	border: transparent;
+	text-align: center;
+}
+
+.temp {
+	border-radius: 6px;
+	border: transparent;
+	text-align: center;
+}
+
+.weather {
+	border-radius: 8px;
+	border: transparent;
+	text-align: center;
+}
+
+
 
 @media only screen and (max-width: 720px) {
 	#header {
