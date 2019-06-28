@@ -1,4 +1,6 @@
-
+.html {
+	max-height: -moz-available;
+}
 .body {
 	width: 100%;
 	margin: 0px;
@@ -62,7 +64,7 @@
 
 .table-container .content-wrapper {
 	height: 70%;
-	top: 20px;
+	top: 50%;
 	position: relative;
 }
 
