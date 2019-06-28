@@ -224,6 +224,7 @@
 	.table-container {
 		max-width: -moz-available;
 		left: auto;
+		top: 40%;
 	}
 	.controls .left{
 		border-color: white;
@@ -234,14 +235,26 @@
 	
 }
 
-@media only screen and (min-width: 721px) {
+@media only screen and (max-width: 1199px) and (min-width: 721px) {
 	.btn-container {
 		display: none;
+	}
+	.table-container {
+		max-width: -moz-available;
+		left: auto;
+		top: 40%;
 	}
 }
 
 @media only screen and (max-width: 1200px) {
+
 	#header {
 		font-size: 1.2em;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.btn-container {
+		display: none;
 	}
 }
