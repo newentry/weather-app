@@ -169,7 +169,7 @@
 
 
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 1280px) {
 	body {
 		background-image: url(weather.jpg);
 		background-repeat: repeat-y;
@@ -244,9 +244,7 @@
 }
 
 @media only screen and (max-width: 1199px) and (min-width: 721px) {
-	.btn-container {
-		display: none;
-	}
+
 	.table-container {
 		max-width: -moz-available;
 		left: auto;
@@ -258,11 +256,5 @@
 
 	#header {
 		font-size: 1.2em;
-	}
-}
-
-@media only screen and (min-width: 1200px) {
-	.btn-container {
-		display: none;
 	}
 }
