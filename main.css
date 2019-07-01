@@ -49,17 +49,17 @@
 	border: 1px solid #fff;
 	border-radius: 5px;
 	width: 60%;
-	margin-left: 19%;
-	margin-right: 19%;
-	top: 200px;
+	top: 25%;
+	left: 20%;
 }
 
 .table-container {
-	max-width: 1280px;
+	max-width: 60%;
 	height: 200px;
 	position: absolute;
+	margin:auto;
 	top: 30%;
-	left: 24%;
+	left: 20%;
 }	
 
 .table-container .content-wrapper {
@@ -76,7 +76,7 @@
 
 .table-content {
 	overflow: hidden;
-	margin: 0 75px 0 60px;
+	margin: 2% 5%;
 	font-family: math, sans-serif;
 }
 
@@ -169,14 +169,14 @@
 
 
 
-@media only screen and (max-width: 1920px) {
+@media only screen and (max-width: 2100px) {
 	body {
 		background-image: url(weather.jpg);
 		background-repeat: repeat-y;
 		background-size: cover;	
 	}
-	#location-search-input {
-		margin-left: 15%;
+	.table-content {
+		margin: 0 30px;
 	}
 	.img-canvas {
 		display: none;
@@ -226,11 +226,6 @@
 		right: 5%;
 		z-index: 1;
 	}
-	.table-container {
-		max-width: -moz-available;
-		left: auto;
-		top: 40%;
-	}
 	.controls .left{
 		border-color: white;
 	}
@@ -243,7 +238,6 @@
 	
 }
 
-
 @media only screen and (max-width: 1200px) {
 
 	#header {
@@ -251,7 +245,7 @@
 	}
 }
 
-@media only screen and (min-width: 1921px) {
+@media only screen and (min-width: 2101px) {
 	.btn-container {
 		display: none;
 	}
