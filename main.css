@@ -240,12 +240,6 @@
 	.dropdown-menu a {
 
 	}
-	.table-container {
-		max-width: -moz-available;
-		left: auto;
-		top: 40%;
-	}
-}
 	
 }
 
