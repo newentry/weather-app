@@ -49,7 +49,7 @@
 	border: 1px solid #fff;
 	border-radius: 5px;
 	width: 60%;
-	top: 25%;
+	top: 180px;
 	left: 50%;
 	margin-left: -30%;
 }
@@ -65,7 +65,7 @@
 
 .table-container .content-wrapper {
 	height: 70%;
-	top: 50%;
+	top: 20px;
 	position: relative;
 }
 
@@ -156,6 +156,10 @@
 	text-align: center;
 }
 
+.img-icon img {
+	width: 80px;
+}
+
 .temp {
 	border-radius: 6px;
 	border: transparent;
@@ -203,7 +207,7 @@
 		display: flex;
 		height: 50px;
 		width: 50px;
-		margin-right: 50px;
+		margin-right: 10%;
 		align-items: center;
 		background-color: #dfdfdf;
 		border-radius: 5px;
@@ -223,7 +227,7 @@
 	#dropdown-menu {
 		display: none;
 		position: absolute;
-		top: 12%;
+		top: 100px;
 		right: 5%;
 		z-index: 1;
 	}
@@ -233,17 +237,6 @@
 	.controls .right{
 		border-color: white;
 	}
-	.dropdown-menu a {
-
-	}
-	
-}
-
-@media only screen and (max-width: 1200px) {
-
-	#header {
-		font-size: 1.2em;
-	}
 }
 
 @media only screen and (min-width: 2101px) {
@@ -251,3 +244,59 @@
 		display: none;
 	}
 }
+
+@media only screen and (max-width: 1200px) {
+
+	#header {
+		font-size: 1.2em;
+	}
+	#location-search-input {
+		top: 200px;
+	}
+	.table-container {
+		top: 250px;
+	}
+}
+
+@media only screen and (max-width: 960px) {
+
+	#location-search-input {
+		font-size: 1em;
+	}
+
+	#dropdown-menu a {
+		font-size: 12px;
+	}
+}
+
+@media only screen and (max-width: 650px) {
+
+	#location-search-input {
+		font-size: 0.8em;
+	}
+	
+	#dropdown-menu {
+		top: 100px;
+	}
+
+	#dropdown-menu a {
+		font-size: 12px;
+	}
+	
+	.all-data {
+		font-size: xx-small;
+		height: -moz-min-content;
+	}
+	.img-icon img {
+		width: 40px;
+	}
+	.controls .arrow {
+		top: 32%;
+	}
+	.table-container {
+		width: 80%;
+		left: 50%;
+		margin-left: -40%;
+	}
+}
+

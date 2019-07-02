@@ -1,11 +1,16 @@
+var click = document.getElementById('dropdown-menu');
+
 function show_hide(argument) {
-	var click = document.getElementById('dropdown-menu');
 	if (click.style.display === "none") {
 		click.style.display = "block";
 	}
 	else {
 		click.style.display = "none";
 	}
+}
+
+function hide_menu() {
+	click.style.display = "none";
 }
 
 function getFocus() {
@@ -27,7 +32,7 @@ function add2(dtime, icon, weather, temp) {
 
 		var table ='<div class="all-data" >\
 			<div class="date-time">' + dtime + '</div>\
-			<div class="img-icon"><img src="' + icon +'" style="width: 80px"></div>\
+			<div class="img-icon"><img src="' + icon +'"></div>\
 			<div class="temp">' + temp + "°" + '</div>\
 			<div class="weather">' + weather + '</div>\
 		</div>';
