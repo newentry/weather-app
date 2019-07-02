@@ -39,7 +39,7 @@
 	color: white;
 }
 .image {
-	width: 100%;
+	width: -moz-available;
 	height: auto;
 }
 #location-search-input {
@@ -50,16 +50,17 @@
 	border-radius: 5px;
 	width: 60%;
 	top: 25%;
-	left: 20%;
+	left: 50%;
+	margin-left: -30%;
 }
 
 .table-container {
-	max-width: 60%;
+	width: 60%;
 	height: 200px;
 	position: absolute;
-	margin:auto;
 	top: 30%;
-	left: 20%;
+	left: 50%;
+	margin-left:-29%;
 }	
 
 .table-container .content-wrapper {
@@ -81,7 +82,7 @@
 }
 
 .table-content2 {
-	width: 90%;
+	width: 100%;
 	display: flex;
 	
 }
