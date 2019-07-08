@@ -23,16 +23,18 @@
 	<header id="header">
 		<div class="logo">Weather Forecast</div>
 		<div class="btn-container">
-			<button id="button" class="menu-btn"  onclick="show_hide()">Menu</button>
-			<div id="dropdown-menu">
-				<a href="#location-search-input"  onclick="getFocus()" onblur="hide_menu()"> Find a forecast</a>
-				<a href=""> Services</a>
-				<a href=""> About us</a>
-			</div>
+			<div id="parent">
+				<button id="button" class="menu-btn">Menu</button>
+				<div id="dropdown-menu">
+					<a href="#location-search-input"  onclick="getFocus(event)"> Find a forecast</a>
+					<a href=""> Services</a>
+					<a href=""> About us</a>
+				</div>
+			</div>	
 		</div>
 		<nav class="nav-bar menu-nav-bar">
 			<ul>
-				<li><a href="#location-search-input" onclick="getFocus()"> Find a forecast</a></li>
+				<li><a href="#location-search-input" onclick="getFocus(event)"> Find a forecast</a></li>
 				<li><a href=""> Services</a></li>
 				<li><a href=""> About us</a></li>
 			</ul>
@@ -43,9 +45,9 @@
 			<img class="image" src="weather.jpg">
 		</div>
 		<div>
-			<form id="submit" onsubmit="return location_input()">
+			<form id="submit" onsubmit="return handleUserForecastRequest()">
 				<input id="location-search-input" type="text" name="query" 
-				 placeholder="Type in location">
+				 placeholder="   Type in location">
 			</form>
 		</div>
 		<section class="table-container">

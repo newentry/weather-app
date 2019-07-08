@@ -1,120 +1,100 @@
-var click = document.getElementById('dropdown-menu');
+var parent = document.getElementById('parent');
+var click = document.getElementById('button');
+var dropdownMenu = document.getElementById("dropdown-menu");
 
-function show_hide(argument) {
-	if (click.style.display === "none") {
-		click.style.display = "block";
+// Needed for dropdown menu to show on menu mouseover.
+
+click.onmouseover = function(argument) {
+	var dropdownMenu = document.getElementById("dropdown-menu");
+	if (dropdownMenu.style.display !== "block") {
+		dropdownMenu.style.display = "block";
 	}
-	else {
-		click.style.display = "none";
+}
+
+parent.onmouseout = function(argument) {
+	if (dropdownMenu.style.display === "block") {
+		dropdownMenu.style.display = "none";
 	}
 }
 
-function hide_menu() {
-	click.style.display = "none";
+
+// Get focus onto search input while clicking on "find a forecast".
+
+function getFocus(event) {
+	// Prevent page refresh
+	event.preventDefault();
+	document.getElementById("location-search-input").focus();
 }
+// Generates and appends weather forecast data for specific time.
+function displayForecastForTime(dtime, icon, weather, temp) {
 
-function getFocus() {
-	$("a").click(function(event){
-  	event.preventDefault();
-});
-	var focus2 = document.getElementById("location-search-input").focus();
-	var z = document.getElementById("dropdown-menu");
-  if (z.style.display === "block") {
-    z.style.display = "none";
-  } else {
-    z.style.display = "block";
-  }
-	return focus2;
-
-}
-
-function add2(dtime, icon, weather, temp) {
-
-		var table ='<div class="all-data" >\
+	var table = '<div class="all-data" >\
 			<div class="date-time">' + dtime + '</div>\
-			<div class="img-icon"><img src="' + icon +'"></div>\
+			<div class="img-icon"><img src="' + icon + '"></div>\
 			<div class="temp">' + temp + "°" + '</div>\
 			<div class="weather">' + weather + '</div>\
 		</div>';
-		
-		
-		$(".table-content2").append(table);
-	return false;
-}
 
-function data_return(list, index) {
-		
-		var listIndex = list[index];
-		
-		var dtime = listIndex.dt_txt;
-		var temp = Math.floor(listIndex.main.temp);
+	$(".table-content2").append(table);
+}
+// Processing forecast data for time at index.
+
+function processForecastDataAtTime(list, index) {
+
+	var listIndex = list[index];
+	var dtime = listIndex.dt_txt;
+	var temp = Math.floor(listIndex.main.temp);
 
 	for (var i = 0; i < listIndex.weather.length; i++) {
-		
+
 		var listWeather = listIndex.weather[i];
 
 		var icon = "http://openweathermap.org/img/w/" + listWeather.icon + ".png";
 		var weather = listWeather.main;
 
-		add2(dtime, icon, weather, temp);
+		displayForecastForTime(dtime, icon, weather, temp);
 	}
-		
-	
 }
 
-function location_input(event) {
+// Handles city input from user for returning forecast. 
+function handleUserForecastRequest() {
 	var city = document.getElementById("location-search-input").value;
 
-	
 	$(".table-content2").html("");
-	
 
-$.getJSON("https://api.openweathermap.org/data/2.5/forecast?q="+ city +"&units=metric&appid=5b5393bafaa87fba80fc2c0ab113981e", 
-	function(data){
-		
-		document.getElementById("show-controls").style.display = "block";	
-		document.getElementById("content-weather").style.display = "block";
-		document.getElementById("alert").style.display = "none";
+	$.getJSON("https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&appid=5b5393bafaa87fba80fc2c0ab113981e",
+			// Success handler.	
+			function(data) {
+				document.getElementById("show-controls").style.display = "block";
+				document.getElementById("content-weather").style.display = "block";
+				document.getElementById("alert").style.display = "none";
 
-		var i;
-		
-
-		for( i=0; i<data.list.length; i++){
-			
-			data_return(data.list, i);
-			
-		}
-	}
-	)
-	
-	.fail(function() {
-   		document.getElementById("show-controls").style.display = "none"; 
-   		document.getElementById("alert").style.display= "block";
-   	});
-
-
-	
+				for (var i = 0; i < data.list.length; i++) {
+					processForecastDataAtTime(data.list, i);
+				}
+			}
+		)
+		.fail(function() {
+			document.getElementById("show-controls").style.display = "none";
+			document.getElementById("alert").style.display = "block";
+		});
+	// On submit prevents page refresh.
 	return false;
 };
-
 
 var leftArrow = document.querySelector('.left');
 var rightArrow = document.querySelector('.right');
 var sectionIndex = 0;
-
-rightArrow.addEventListener('click', function(){
-		sectionIndex = (sectionIndex <9) ? sectionIndex +1 : 10;
+// Handles right scrolling.
+rightArrow.addEventListener('click', function() {
+	sectionIndex = (sectionIndex < 9) ? sectionIndex + 1 : 10;
 	var slider = document.querySelector('.table-content2');
-		slider.style.transform = 'translate(' + (sectionIndex) * -25 + '%)';
-		slider.style.transition = 'all 0.5s';
+	slider.style.transform = 'translate(' + (sectionIndex) * -25 + '%)';
+	slider.style.transition = 'all 0.5s';
 });
-
-leftArrow.addEventListener('click', function(){
-		sectionIndex = (sectionIndex >0) ? sectionIndex -1 : 0;
+// Handles left scrolling.
+leftArrow.addEventListener('click', function() {
+	sectionIndex = (sectionIndex > 0) ? sectionIndex - 1 : 0;
 	var slider = document.querySelector('.table-content2');
-		slider.style.transform = 'translate(' + (sectionIndex) * -25 + '%)';
+	slider.style.transform = 'translate(' + (sectionIndex) * -25 + '%)';
 });
-
-
-
-
